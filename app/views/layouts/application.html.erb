@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CommentOnRails</title>
+    <title>Комментарии на рельсах</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          With ♥ from JohnIvanovich
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
