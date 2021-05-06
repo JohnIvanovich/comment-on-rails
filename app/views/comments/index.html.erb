@@ -1,2 +1,65 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<section class="section">
+  <div class="container mb-4">
+    <h1 class="is-size-3">Список комментариев:</h1>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <%= form_with url: "", method: "GET" do %>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input
+              class="input"
+              type="text"
+              name="q"
+              placeholder="Найти комментарий"
+            >
+          </div>
+          <div class="control">
+            <button class="button is-primary">Поиск</button>
+          </div>
+        </div>
+      <% end %>
+
+      <br>
+
+      <% if search_param %>
+        Поиск по: <span class="is-italic"><%= search_param %></span>
+        <a href="/admin" class="delete is-small"></a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <% if @comments.size > 0 %>
+      <% @comments.each do |comment| %>
+        <div class="card mb-4">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-5"><%= comment.author %></p>
+                <p class="subtitle is-6"><%= comment.address %></p>
+              </div>
+            </div>
+
+            <div class="content">
+              <%= comment.body %>
+              <br><br>
+              <span class="is-italic is-size-6">
+                Добавлено:
+                <time datetime="<%= comment.created_at %>"><%= comment.created_at %></time>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <% if search_param %>
+        <h3>По поиску комментариев нет</h3>
+      <% else %>
+        <h3>Нет пока комментариев</h3>
+        <%= link_to 'Добавить', '/' %>
+      <% end %>
+    <% end %>
+  </div>
+</section>

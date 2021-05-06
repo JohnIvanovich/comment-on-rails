@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="container">
+    <h1 class="is-size-3">Ваш комментарий:</h1>
+
+    <%= comment_create_result %>
+
+    <div class="columns mt-4">
+      <div class="column is-half-desktop is-half-tablet">
+        <%= form_with model: @comment, local: true do |form| %>
+          <div class="field">
+            <%= form.label :author, "Имя", class: "label" %>
+            <div class="control">
+              <%= form.text_field :author, class: "input", placeholder: "Укажите ваше имя", required: true %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :address, "Адрес", class: "label" %>
+            <div class="control">
+              <%= form.text_field :address, class: "input", placeholder: "Укажите ваш адрес", required: true %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :body, "Ваш комментарий", class: "label" %>
+            <div class="control">
+              <%= form.text_area :body, class: "textarea", placeholder: "Напишите нам что-нибудь...", required: true %>
+            </div>
+          </div>
+
+          <div class="field mt-5">
+            <div class="control">
+              <%= form.submit "Отправить", class: "button is-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
