@@ -24,3 +24,13 @@ $primary-light: findLightColor(#7957d5) !default;
 $primary-dark: findDarkColor(#7957d5) !default;
 
 @import 'bulma/bulma.sass';
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex: 1;
+}
