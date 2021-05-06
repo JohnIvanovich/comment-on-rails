@@ -7,7 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import dayjs from "dayjs"
+import "dayjs/locale/ru"
+
+dayjs.locale("ru")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('time').forEach(function(tm) {
+    tm.innerHTML = dayjs(tm.getAttribute('datetime')).format('MM-DD-YYYY HH:mm');
+  });
+});
