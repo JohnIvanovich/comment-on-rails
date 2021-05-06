@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+// override some vars
+
+@import 'bulma/sass/utilities/functions.sass';
+
+$primary: #7957d5 !default;
+$primary-invert: findColorInvert(#7957d5) !default;
+$primary-light: findLightColor(#7957d5) !default;
+$primary-dark: findDarkColor(#7957d5) !default;
+
+@import 'bulma/bulma.sass';
